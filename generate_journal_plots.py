@@ -43,14 +43,14 @@ def load_and_preprocess(filepath):
     
     return active
 
-# Regimes configuration
+# Regimes configuration with TX4BS2 for sub-Tg
 regimes = {
     'sub_tg': {
         'label': r'$T_g - 20^\circ\text{C}$ (Sub-$T_g$)',
         'dir': os.path.join(data_dir, '20degreesBelowTg'),
         'color': '#005AB5',       # Royal Blue
         'light_color': '#90CAF9', # Light Blue
-        'rep_file': 'log20degreesLess_19Jan2026_TX4BS1.csv'
+        'rep_file': 'log20degreesLess_19Jan2026_TX4BS2.csv' # TX4BS2 selected per user request
     },
     'tg': {
         'label': r'$T_g$ (At $T_g$)',
@@ -73,10 +73,9 @@ regimes = {
 # ==============================================================================
 fig1, (ax1, ax2) = plt.subplots(1, 2, figsize=(11.5, 4.8), dpi=300)
 
+# First plot all individual runs with light/thin lines for reproducibility
 for reg_key, reg_data in regimes.items():
     csv_files = glob.glob(os.path.join(reg_data['dir'], '*.csv'))
-    
-    # First plot all individual runs with light/thin lines for reproducibility
     for f in sorted(csv_files):
         fname = os.path.basename(f)
         if fname == reg_data['rep_file']:
@@ -99,7 +98,7 @@ ax1.set_xlabel(r'Electrification Time, $t$ (s)', fontsize=11, fontweight='bold')
 ax1.set_ylabel(r'Electrical Resistance, $R$ ($\Omega$)', fontsize=11, fontweight='bold')
 ax1.set_title(r'(a) Absolute Electrical Resistance', fontsize=11, fontweight='bold', loc='left', pad=10)
 ax1.grid(True, which='major', linestyle=':', color='#CCCCCC', alpha=0.8)
-ax1.set_xlim(0, 160)
+ax1.set_xlim(0, 120)
 ax1.set_ylim(0, 8.0)
 ax1.xaxis.set_minor_locator(ticker.AutoMinorLocator(2))
 ax1.yaxis.set_minor_locator(ticker.AutoMinorLocator(2))
@@ -110,7 +109,7 @@ ax2.set_xlabel(r'Electrification Time, $t$ (s)', fontsize=11, fontweight='bold')
 ax2.set_ylabel(r'Normalized Resistance, $R / R_0$', fontsize=11, fontweight='bold')
 ax2.set_title(r'(b) Normalized Resistance Decay', fontsize=11, fontweight='bold', loc='left', pad=10)
 ax2.grid(True, which='major', linestyle=':', color='#CCCCCC', alpha=0.8)
-ax2.set_xlim(0, 160)
+ax2.set_xlim(0, 120)
 ax2.set_ylim(0, 1.05)
 ax2.xaxis.set_minor_locator(ticker.AutoMinorLocator(2))
 ax2.yaxis.set_minor_locator(ticker.AutoMinorLocator(2))
@@ -130,7 +129,7 @@ fig1.savefig(fig1_png_art, dpi=300, bbox_inches='tight')
 fig1.savefig(fig1_pdf_art, dpi=300, bbox_inches='tight')
 plt.close(fig1)
 
-print(f"Primary Journal Figure saved to:\n  {fig1_png_ws}\n  {fig1_pdf_ws}")
+print(f"Primary Journal Figure updated with TX4BS2 saved to:\n  {fig1_png_ws}\n  {fig1_pdf_ws}")
 
 # ==============================================================================
 # FIGURE 2: Multi-Metric Composite Figure (4 Panels: R(t), R/R0, Temp(t), Power(t))

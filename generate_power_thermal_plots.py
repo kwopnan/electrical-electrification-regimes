@@ -55,7 +55,7 @@ regimes = {
         'label': r'$T_g - 20^\circ\text{C}$ (Sub-$T_g$)',
         'dir': os.path.join(data_dir, '20degreesBelowTg'),
         'color': '#005AB5',
-        'rep_file': 'log20degreesLess_19Jan2026_TX4BS1.csv'
+        'rep_file': 'log20degreesLess_19Jan2026_TX4BS2.csv' # TX4BS2
     },
     'tg': {
         'label': r'$T_g$ (At $T_g$)',
@@ -112,11 +112,10 @@ ax2.legend(frameon=True, edgecolor='#333333', facecolor='white', framealpha=0.95
 ax2.set_xlim(0, 160)
 
 # Extract Thermal Threshold Data for Tg and Super-Tg experiments
-# Target Thermal Thresholds (°C)
 thresholds = [30, 40, 50, 60, 70, 80]
 
-# Extract threshold metrics across all runs with temperature sensors
 thermal_runs = {
+    r'$T_g - 20^\circ\text{C}$ (Sample TX4BS2)': {'file': os.path.join(data_dir, '20degreesBelowTg', 'log20degreesLess_19Jan2026_TX4BS2.csv'), 'color': '#005AB5', 'marker': 'v'},
     r'$T_g$ (Sample TX4BS7)': {'file': os.path.join(data_dir, 'Tg', 'log_25Jan2026_TX4BS7.csv'), 'color': '#EF4444', 'marker': 'o'},
     r'$T_g$ (Sample TX4BS8)': {'file': os.path.join(data_dir, 'Tg', 'log_25Jan2026_TX4BS8.csv'), 'color': '#DC2626', 'marker': 's'},
     r'$T_g$ (Sample TX4BS9)': {'file': os.path.join(data_dir, 'Tg', 'log_25Jan2026_TX4BS9.csv'), 'color': '#991B1B', 'marker': '^'},
@@ -170,4 +169,4 @@ fig.savefig(fig_png_art, dpi=300, bbox_inches='tight')
 fig.savefig(fig_pdf_art, dpi=300, bbox_inches='tight')
 plt.close(fig)
 
-print(f"Power Dissipation & Thermal Threshold Figure saved to:\n  {fig_png_ws}\n  {fig_pdf_ws}")
+print(f"Power Dissipation & Thermal Threshold Figure updated with TX4BS2 saved to:\n  {fig_png_ws}\n  {fig_pdf_ws}")
