@@ -43,14 +43,14 @@ def load_and_preprocess(filepath):
     
     return active
 
-# Regimes configuration with TX4BS2 for sub-Tg
+# Regimes configuration with TX4BS6 for sub-Tg
 regimes = {
     'sub_tg': {
         'label': r'$T_g - 20^\circ\text{C}$ (Sub-$T_g$)',
         'dir': os.path.join(data_dir, '20degreesBelowTg'),
         'color': '#005AB5',       # Royal Blue
         'light_color': '#90CAF9', # Light Blue
-        'rep_file': 'log20degreesLess_19Jan2026_TX4BS2.csv' # TX4BS2 selected per user request
+        'rep_file': 'log20degreesLess_19Jan2026_TX4BS6.csv' # TX4BS6 selected per user request
     },
     'tg': {
         'label': r'$T_g$ (At $T_g$)',
@@ -129,7 +129,7 @@ fig1.savefig(fig1_png_art, dpi=300, bbox_inches='tight')
 fig1.savefig(fig1_pdf_art, dpi=300, bbox_inches='tight')
 plt.close(fig1)
 
-print(f"Primary Journal Figure updated with TX4BS2 saved to:\n  {fig1_png_ws}\n  {fig1_pdf_ws}")
+print(f"Primary Journal Figure updated with TX4BS6 saved to:\n  {fig1_png_ws}\n  {fig1_pdf_ws}")
 
 # ==============================================================================
 # FIGURE 2: Multi-Metric Composite Figure (4 Panels: R(t), R/R0, Temp(t), Power(t))
