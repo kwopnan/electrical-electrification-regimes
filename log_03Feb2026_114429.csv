@@ -1,0 +1,2 @@
+Timestamp,Elapsed_s,Voltage_V,Current_A,Power_W,PSU_Status,VSense_V
+2026-02-03T11:44:39.951509,0.002,5.459785e-05,0.0001781793,9.728206694505e-09,OFF,0.0
