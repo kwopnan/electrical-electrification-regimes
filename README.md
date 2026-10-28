@@ -48,3 +48,9 @@ Ensure Python 3.x is installed with `pandas`, `numpy`, `matplotlib`, and `openpy
 pip install pandas numpy matplotlib openpyxl
 python generate_journal_plots.py
 ```
+
+---
+
+## 🛡️ Laboratory safety documentation
+
+- `/home/runner/work/electrical-electrification-regimes/electrical-electrification-regimes/LAB_RISK_ASSESSMENT_SOP.md` — Risk assessment, safe operating procedure, and pre-energised commissioning/approval checklist for heated CFRP electrification testing.
